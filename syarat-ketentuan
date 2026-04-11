@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Syarat & Ketentuan — PeluangCPNS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --border: #e4e7ec;
+      --text-primary: #0f1623;
+      --text-secondary: #5a6478;
+      --text-muted: #9aa3b2;
+      --accent: #1a56db;
+      --accent-light: #eff4ff;
+      --accent-soft: #c7d8fd;
+      --warning: #dc6f1a;
+      --warning-light: #fff7ed;
+      --green: #0e7a4e;
+      --green-light: #ecfdf5;
+      --radius: 14px;
+      --radius-sm: 8px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      padding: 48px 20px 80px;
+      line-height: 1.7;
+    }
+
+    .wrapper {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .page-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-light);
+      border: 1px solid var(--accent-soft);
+      border-radius: 99px;
+      padding: 6px 16px;
+      margin-bottom: 20px;
+    }
+
+    .brand-badge span {
+      font-family: 'Sora', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .brand-badge .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .page-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* Card */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 16px;
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 20px 28px;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .section-num {
+      font-family: 'Sora', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-light);
+      border-radius: 6px;
+      padding: 4px 8px;
+      letter-spacing: 0.04em;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      flex: 1;
+    }
+
+    .toggle-icon {
+      color: var(--text-muted);
+      font-size: 18px;
+      line-height: 1;
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+
+    .card.open .toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    .card-body {
+      padding: 0 28px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.25s;
+    }
+
+    .card.open .card-body {
+      padding: 24px 28px 28px;
+      max-height: 1000px;
+    }
+
+    .card-body p {
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .card-body p:last-child { margin-bottom: 0; }
+
+    /* Lists */
+    .list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .list li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .list li::before {
+      content: '—';
+      color: var(--text-muted);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Callout boxes */
+    .callout {
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      font-size: 13.5px;
+      margin-top: 16px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      line-height: 1.6;
+    }
+
+    .callout-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+    .callout.warning {
+      background: var(--warning-light);
+      border: 1px solid #fcd4aa;
+      color: #7c3b0e;
+    }
+
+    .callout.info {
+      background: var(--accent-light);
+      border: 1px solid var(--accent-soft);
+      color: #1e3a8a;
+    }
+
+    .callout.success {
+      background: var(--green-light);
+      border: 1px solid #a7f3d0;
+      color: #064e35;
+    }
+
+    .callout strong { font-weight: 600; }
+
+    /* Contact card */
+    .contact-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .contact-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .contact-chip:hover {
+      border-color: var(--accent);
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    /* Footer note */
+    .footer-note {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 13px;
+      color: var(--text-muted);
+      padding: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      line-height: 1.6;
+    }
+
+    .footer-note strong { color: var(--text-secondary); font-weight: 500; }
+
+    @media (max-width: 520px) {
+      .card-header { padding: 16px 18px; }
+      .card.open .card-body { padding: 18px 18px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <div class="page-header">
+      <div class="brand-badge">
+        <div class="dot"></div>
+        <span>PeluangCPNS</span>
+      </div>
+      <h1>Syarat &amp; Ketentuan</h1>
+      <p class="page-meta">Terakhir diperbarui: April 2026</p>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="card open" id="s1">
+      <div class="card-header" onclick="toggle('s1')">
+        <span class="section-num">01</span>
+        <span class="section-title">Tentang Layanan</span>
+        <span class="toggle-icon">⌄</span>
+      </div>
+      <div class="card-body">
+        <p>PeluangCPNS adalah platform informasi data seleksi CPNS yang menyajikan data historis cut-off, rekap formasi, kalkulator peluang, dan fitur analisis pendukung lainnya.</p>
+        <div class="callout info">
+          <span class="callout-icon">ℹ️</span>
+          <span>Platform ini <strong>tidak berafiliasi</strong> dengan BKN, Panselnas, Kemenpan-RB, atau instansi pemerintah manapun. Seluruh data bersumber dari dokumen resmi yang tersedia untuk publik dan disajikan <strong>untuk keperluan referensi semata</strong>, bukan jaminan hasil seleksi.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="card" id="s2">
+      <div class="card-header" onclick="toggle('s2')">
+        <span class="section-num">02</span>
+        <span class="section-title">Penggunaan Platform</span>
+        <span class="toggle-icon">⌄</span>
+      </div>
+      <div class="card-body">
+        <p>Pengguna diizinkan mengakses dan menggunakan fitur Platform untuk kepentingan pribadi dalam persiapan seleksi CPNS.</p>
+        <p>Pengguna <strong>dilarang</strong>:</p>
+        <ul class="list">
+          <li>Melakukan scraping atau pengambilan data secara massal tanpa izin tertulis</li>
+          <li>Menggunakan Platform untuk kepentingan komersial tanpa persetujuan kami</li>
+          <li>Menyebarkan hasil analisis Platform dengan mengatasnamakan instansi resmi pemerintah</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="card" id="s3">
+      <div class="card-header" onclick="toggle('s3')">
+        <span class="section-num">03</span>
+        <span class="section-title">Akun Berbayar</span>
+        <span class="toggle-icon">⌄</span>
+      </div>
+      <div class="card-body">
+        <p>Beberapa fitur PeluangCPNS hanya tersedia melalui langganan berbayar. Dengan melakukan pembayaran, Anda menyetujui ketentuan berikut:</p>
+        <ul class="list">
+          <li>Akses fitur premium aktif sejak pembayaran berhasil diverifikasi</li>
+          <li>Harga dan fitur langganan dapat berubah sewaktu-waktu; perubahan tidak berlaku surut untuk langganan yang sudah aktif</li>
+          <li>Kami berhak menangguhkan akses jika ditemukan pelanggaran Syarat & Ketentuan ini</li>
+        </ul>
+        <div class="callout warning">
+          <span class="callout-icon">⚠️</span>
+          <span><strong>Tidak ada pengembalian dana (no refund).</strong> Semua transaksi bersifat final, termasuk jika pengguna memutuskan berhenti menggunakan layanan sebelum masa langganan berakhir.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="card" id="s4">
+      <div class="card-header" onclick="toggle('s4')">
+        <span class="section-num">04</span>
+        <span class="section-title">Privasi &amp; Data Pengguna</span>
+        <span class="toggle-icon">⌄</span>
+      </div>
+      <div class="card-body">
+        <p>Kami mengumpulkan data yang Anda input secara sukarela di Platform (seperti email dan nomor HP) yang digunakan untuk keperluan akun dan komunikasi layanan. Data disimpan di infrastruktur Supabase dengan enkripsi dan kontrol akses.</p>
+        <p>Fitur-fitur analisis seperti Tryout Tracker dan Kalkulator Jurusan bekerja secara lokal di browser Anda dan tidak dikirim ke server kami.</p>
+        <div class="callout success">
+          <span class="callout-icon">🔒</span>
+          <span>Kami <strong>tidak menjual data Anda</strong> kepada pihak ketiga. Anda berhak meminta akses atau penghapusan data kapan saja dengan menghubungi kami.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="card" id="s5">
+      <div class="card-header" onclick="toggle('s5')">
+        <span class="section-num">05</span>
+        <span class="section-title">Perubahan &amp; Penghentian Layanan</span>
+        <span class="toggle-icon">⌄</span>
+      </div>
+      <div class="card-body">
+        <p>Kami berhak mengubah, memperbarui, atau menghentikan fitur layanan kapan saja. Kami tidak bertanggung jawab atas kerugian yang timbul akibat perubahan atau gangguan layanan di luar kendali kami.</p>
+        <p>Syarat & Ketentuan ini tunduk pada hukum yang berlaku di Republik Indonesia.</p>
+      </div>
+    </div>
+
+    <!-- Section 6 - Contact -->
+    <div class="card" id="s6">
+      <div class="card-header" onclick="toggle('s6')">
+        <span class="section-num">06</span>
+        <span class="section-title">Hubungi Kami</span>
+        <span class="toggle-icon">⌄</span>
+      </div>
+      <div class="card-body">
+        <p>Ada pertanyaan tentang layanan atau data Anda? Hubungi kami melalui:</p>
+        <div class="contact-row">
+          <a class="contact-chip" href="mailto:support@peluangcpns.id">
+            <span>✉️</span> support@peluangcpns.id
+          </a>
+          <a class="contact-chip" href="https://x.com/PeluangCPNS" target="_blank">
+            <span>𝕏</span> @PeluangCPNS
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      Dengan menggunakan Platform ini, Anda dianggap telah membaca dan menyetujui seluruh ketentuan di atas.<br>
+      <strong>© 2026 PeluangCPNS. Semua hak dilindungi.</strong>
+    </div>
+
+  </div>
+
+  <script>
+    function toggle(id) {
+      const card = document.getElementById(id);
+      card.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
