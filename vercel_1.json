@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "syarat-ketentuan.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/syarat-ketentuan.html"
+    },
+    {
+      "src": "/syarat-ketentuan",
+      "dest": "/syarat-ketentuan.html"
+    }
+  ]
+}
