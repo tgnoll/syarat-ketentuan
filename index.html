@@ -109,16 +109,16 @@
       gap: 14px;
       padding: 20px 28px;
       border-bottom: 1px solid var(--border);
-      cursor: pointer;
-      user-select: none;
+      cursor: default;
+      
     }
 
     .section-num {
       font-family: 'Sora', sans-serif;
       font-size: 11px;
       font-weight: 700;
-      color: var(--accent);
-      background: var(--accent-light);
+      color: #0f1623;
+      background: #e4e7ec;
       border-radius: 6px;
       padding: 4px 8px;
       letter-spacing: 0.04em;
@@ -133,28 +133,11 @@
       flex: 1;
     }
 
-    .toggle-icon {
-      color: var(--text-muted);
-      font-size: 18px;
-      line-height: 1;
-      transition: transform 0.25s;
-      flex-shrink: 0;
-    }
-
-    .card.open .toggle-icon {
-      transform: rotate(180deg);
-    }
+    .toggle-icon { display: none; }
 
     .card-body {
-      padding: 0 28px;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.25s;
-    }
-
-    .card.open .card-body {
       padding: 24px 28px 28px;
-      max-height: 1000px;
+      overflow: visible;
     }
 
     .card-body p {
@@ -287,7 +270,7 @@
 
     <!-- Section 1 -->
     <div class="card open" id="s1">
-      <div class="card-header" onclick="toggle('s1')">
+      <div class="card-header">
         <span class="section-num">01</span>
         <span class="section-title">Tentang Layanan</span>
         <span class="toggle-icon">⌄</span>
@@ -303,7 +286,7 @@
 
     <!-- Section 2 -->
     <div class="card" id="s2">
-      <div class="card-header" onclick="toggle('s2')">
+      <div class="card-header">
         <span class="section-num">02</span>
         <span class="section-title">Penggunaan Platform</span>
         <span class="toggle-icon">⌄</span>
@@ -319,31 +302,64 @@
       </div>
     </div>
 
-    <!-- Section 3 -->
+    <!-- Section 3: Pembayaran & Akses -->
     <div class="card" id="s3">
-      <div class="card-header" onclick="toggle('s3')">
+      <div class="card-header">
         <span class="section-num">03</span>
-        <span class="section-title">Akun Berbayar</span>
+        <span class="section-title">Pembayaran &amp; Akses</span>
         <span class="toggle-icon">⌄</span>
       </div>
       <div class="card-body">
-        <p>Beberapa fitur PeluangCPNS hanya tersedia melalui langganan berbayar. Dengan melakukan pembayaran, Anda menyetujui ketentuan berikut:</p>
+        <p>Beberapa fitur PeluangCPNS hanya tersedia melalui akses berbayar. Dengan melakukan pembayaran, Anda menyetujui seluruh ketentuan berikut:</p>
         <ul class="list">
+          <li>Seluruh pembayaran bersifat <strong>final dan tidak dapat dikembalikan (no refund)</strong> dalam kondisi apapun</li>
           <li>Akses fitur premium aktif sejak pembayaran berhasil diverifikasi</li>
-          <li>Harga dan fitur langganan dapat berubah sewaktu-waktu; perubahan tidak berlaku surut untuk langganan yang sudah aktif</li>
-          <li>Kami berhak menangguhkan akses jika ditemukan pelanggaran Syarat & Ketentuan ini</li>
+          <li>Harga dan fitur dapat berubah sewaktu-waktu; perubahan tidak berlaku surut untuk akses yang sudah aktif</li>
+          <li>Kami berhak menangguhkan akses jika ditemukan pelanggaran Syarat &amp; Ketentuan ini</li>
         </ul>
+
+        <p style="margin-top:16px;">Akses dashboard berlaku sesuai paket yang dibeli:</p>
+        <ul class="list">
+          <li><strong>Paket Early Access & Paket Launching</strong> : berlaku untuk 1 (satu) tahun seleksi CPNS, yaitu CPNS 2026 (s/d April 2027)</li>
+        </ul>
+
+        <ul class="list" style="margin-top:12px;">
+          <li>Satu akun hanya berlaku untuk satu pengguna. Akun tidak dapat dipindahtangankan, dijual kembali, atau digunakan secara bersama-sama</li>
+          <li>Pengguna bertanggung jawab untuk memastikan data pendaftaran (nama, email, nomor HP) yang digunakan adalah benar</li>
+        </ul>
+
         <div class="callout warning">
           <span class="callout-icon">⚠️</span>
-          <span><strong>Tidak ada pengembalian dana (no refund).</strong> Semua transaksi bersifat final, termasuk jika pengguna memutuskan berhenti menggunakan layanan sebelum masa langganan berakhir.</span>
+          <span><strong>Tidak ada pengembalian dana (no refund).</strong> Semua transaksi bersifat final. Apabila seleksi CPNS pada periode yang tertera <strong>tidak diselenggarakan oleh pemerintah</strong>, tidak berlaku pengembalian dana, perpanjangan akses, maupun kompensasi dalam bentuk apapun.</span>
         </div>
       </div>
     </div>
 
-    <!-- Section 4 -->
+    <!-- Section 4: Pemeliharaan & Ketersediaan Layanan -->
     <div class="card" id="s4">
-      <div class="card-header" onclick="toggle('s4')">
+      <div class="card-header">
         <span class="section-num">04</span>
+        <span class="section-title">Pemeliharaan &amp; Ketersediaan Layanan</span>
+        <span class="toggle-icon">⌄</span>
+      </div>
+      <div class="card-body">
+        <p>PeluangCPNS berhak melakukan pemeliharaan sistem (<em>maintenance</em>) secara berkala maupun sewaktu-waktu tanpa pemberitahuan terlebih dahulu. Selama periode maintenance, layanan dashboard dapat mengalami gangguan atau tidak dapat diakses untuk sementara waktu.</p>
+        <ul class="list">
+          <li>Maintenance bukan dasar untuk pengajuan pengembalian dana, perpanjangan masa akses, maupun kompensasi dalam bentuk apapun</li>
+          <li>PeluangCPNS <strong>tidak menjamin ketersediaan layanan 100% (uptime)</strong> setiap saat</li>
+          <li>Apabila terjadi gangguan layanan di luar maintenance yang dijadwalkan, PeluangCPNS akan mengusahakan pemulihan dalam waktu sewajarnya</li>
+        </ul>
+        <div class="callout info">
+          <span class="callout-icon">🔧</span>
+          <span>Kami akan berupaya sebaik mungkin meminimalkan durasi dan dampak dari setiap pemeliharaan sistem demi kenyamanan pengguna.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5: Privasi & Data Pengguna -->
+    <div class="card" id="s5">
+      <div class="card-header">
+        <span class="section-num">05</span>
         <span class="section-title">Privasi &amp; Data Pengguna</span>
         <span class="toggle-icon">⌄</span>
       </div>
@@ -357,10 +373,10 @@
       </div>
     </div>
 
-    <!-- Section 5 -->
-    <div class="card" id="s5">
-      <div class="card-header" onclick="toggle('s5')">
-        <span class="section-num">05</span>
+    <!-- Section 6: Perubahan & Penghentian Layanan -->
+    <div class="card" id="s6">
+      <div class="card-header">
+        <span class="section-num">06</span>
         <span class="section-title">Perubahan &amp; Penghentian Layanan</span>
         <span class="toggle-icon">⌄</span>
       </div>
@@ -370,18 +386,18 @@
       </div>
     </div>
 
-    <!-- Section 6 - Contact -->
-    <div class="card" id="s6">
-      <div class="card-header" onclick="toggle('s6')">
-        <span class="section-num">06</span>
+    <!-- Section 7: Hubungi Kami -->
+    <div class="card" id="s7">
+      <div class="card-header">
+        <span class="section-num">07</span>
         <span class="section-title">Hubungi Kami</span>
         <span class="toggle-icon">⌄</span>
       </div>
       <div class="card-body">
         <p>Ada pertanyaan tentang layanan atau data Anda? Hubungi kami melalui:</p>
         <div class="contact-row">
-          <a class="contact-chip" href="mailto:support@peluangcpns.id">
-            <span>✉️</span> support@peluangcpns.id
+          <a class="contact-chip" href="/cdn-cgi/l/email-protection#f3808683839c8187b383969f86929d9490839d80dd9a97">
+            <span>✉️</span> <span class="__cf_email__" data-cfemail="087b7d7878677a7c48786d647d69666f6b78667b26616c">[email&#160;protected]</span>
           </a>
           <a class="contact-chip" href="https://x.com/PeluangCPNS" target="_blank">
             <span>𝕏</span> @PeluangCPNS
@@ -397,11 +413,4 @@
 
   </div>
 
-  <script>
-    function toggle(id) {
-      const card = document.getElementById(id);
-      card.classList.toggle('open');
-    }
-  </script>
-</body>
-</html>
+  <script data-
